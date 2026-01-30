@@ -24,26 +24,16 @@ async function handler(req: Request): Promise<Response> {
 
     const blink = createClient({ projectId, secretKey });
     
-    // Auth client for verification
-    const authClient = createClient({ 
-      projectId, 
-      auth: { mode: "headless" } 
-    });
-    
     let userId: string | null = null;
     let userRole: string | null = null;
     const authHeader = req.headers.get("Authorization");
     
     if (authHeader) {
       try {
-        const token = authHeader.replace(/^Bearer\s+/i, "");
-        if (token) {
-          authClient.auth.setToken(token);
-          const user = await authClient.auth.me();
-          if (user && user.id) {
-            userId = user.id;
-            userRole = user.role || null;
-          }
+        const auth = await (blink.auth as any).verifyToken(authHeader);
+        if (auth.valid && auth.userId) {
+          userId = auth.userId;
+          userRole = auth.appRole || null;
         }
       } catch (authError) {
         console.warn("Auth verification failed:", authError);

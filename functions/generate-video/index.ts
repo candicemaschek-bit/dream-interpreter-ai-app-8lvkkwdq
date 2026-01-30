@@ -139,18 +139,13 @@ function verifySubscriptionTier(tier: string): { authorized: boolean; error?: st
  */
 async function verifyUserAuthorization(
   blink: ReturnType<typeof createClient>,
+  authenticatedUser: { id: string; email?: string },
   requestUserId: string,
   requestTier: string
 ): Promise<{ authorized: boolean; error?: string; profile?: UserProfile }> {
   try {
-    // Get authenticated user
-    const currentUser = await blink.auth.me();
-    if (!currentUser || !currentUser.id) {
-      return { authorized: false, error: 'Authentication failed: unable to retrieve user information' };
-    }
-
     // Verify userId matches authenticated user
-    if (currentUser.id !== requestUserId) {
+    if (authenticatedUser.id !== requestUserId) {
       return {
         authorized: false,
         error: 'Authorization failed: userId in request does not match authenticated user'
@@ -159,7 +154,7 @@ async function verifyUserAuthorization(
 
     // Fetch user profile to verify subscription tier from database
     const profiles = await blink.db.userProfiles.list({
-      where: { userId: currentUser.id },
+      where: { userId: authenticatedUser.id },
       limit: 1
     });
 
@@ -213,8 +208,7 @@ serve(async (req) => {
   }
 
   try {
-    // SOLUTION 2: Enhanced Authentication with Retry Logic
-    // Extract and validate authentication header with retry support
+    // Verify auth
     const authHeader = req.headers.get("Authorization");
     if (!authHeader) {
       console.error('❌ Missing authorization header');
@@ -236,76 +230,39 @@ serve(async (req) => {
       );
     }
 
-    // Verify token format
-    if (!authHeader.startsWith('Bearer ')) {
-      console.error('❌ Invalid authorization header format');
+    const projectId = Deno.env.get("BLINK_PROJECT_ID") || "dream-interpreter-ai-app-8lvkkwdq";
+    const secretKey = Deno.env.get("BLINK_SECRET_KEY");
+
+    if (!secretKey) {
+      console.error('❌ BLINK_SECRET_KEY not configured');
       return new Response(
-        JSON.stringify({
-          error: "Invalid authorization header format. Expected: Bearer <token>",
-          code: 'AUTH_HEADER_INVALID',
-          retryable: true,
-          hint: 'Client should get a fresh token and retry.'
-        }),
-        {
-          status: 401,
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Retry-After": "5"
-          },
-        }
+        JSON.stringify({ error: "Server configuration error", code: 'CONFIG_ERROR' }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    const token = authHeader.replace("Bearer ", "");
-    if (!token || token.trim() === '') {
-      console.error('❌ Empty authentication token');
-      return new Response(
-        JSON.stringify({
-          error: "Empty authentication token",
-          code: 'AUTH_TOKEN_EMPTY',
-          retryable: true,
-          hint: 'Client should get a fresh token and retry.'
-        }),
-        {
-          status: 401,
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Retry-After": "5"
-          },
-        }
-      );
-    }
-
-    // Create Blink client with the authenticated token
-    // CRITICAL: Set verify_jwt to false in client to prevent double verification
+    // Create Blink client with secret key for admin access
     const blink = createClient({
-      projectId: "dream-interpreter-ai-app-8lvkkwdq",
-      auth: { mode: "headless" }
+      projectId,
+      secretKey
     });
     
-    // Set the token for authentication
-    // Parameters: token string, persist (boolean)
-    blink.auth.setToken(token);
-    
-    console.log('✅ Blink client initialized with authentication token');
-    console.log(`📏 Token length: ${token.length} characters`);
-    console.log(`🔑 Token format: ${token.substring(0, 10)}...${token.substring(token.length - 10)}`);
+    console.log('✅ Blink client initialized with secret key');
     
     // Get authenticated user from token
     let authenticatedUser;
     try {
-      console.log(`🔐 Retrieving user information from token...`);
-      authenticatedUser = await blink.auth.me();
+      console.log(`🔐 Verifying token...`);
+      const auth = await (blink.auth as any).verifyToken(authHeader);
       
-      if (!authenticatedUser || !authenticatedUser.id) {
-        console.error('❌ Token contains no user information');
+      if (!auth.valid || !auth.userId) {
+        console.error('❌ Token verification failed:', auth.error);
         return new Response(
           JSON.stringify({
             error: 'Invalid authentication token. Please refresh the page and sign in again.',
             code: 'TOKEN_INVALID',
-            retryable: true
+            retryable: true,
+            details: auth.error
           }),
           {
             status: 401,
@@ -318,6 +275,7 @@ serve(async (req) => {
         );
       }
       
+      authenticatedUser = { id: auth.userId, email: auth.email };
       console.log(`✅ User authenticated: ${authenticatedUser.id}`);
     } catch (error) {
       console.error(`❌ Failed to get user from token:`, error);
@@ -382,7 +340,7 @@ serve(async (req) => {
 
     // Step 5: Verify user authorization and subscription tier
     console.log(`🔐 Verifying authorization for user ${userId} with tier ${subscriptionTier}...`);
-    const authorizationCheck = await verifyUserAuthorization(blink, userId, subscriptionTier);
+    const authorizationCheck = await verifyUserAuthorization(blink, authenticatedUser, userId, subscriptionTier);
     if (!authorizationCheck.authorized) {
       console.error('❌ Authorization failed:', authorizationCheck.error);
       return new Response(

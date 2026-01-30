@@ -45,25 +45,15 @@ async function handler(req: Request): Promise<Response> {
 
     const blink = createClient({ projectId, secretKey });
 
-    // Auth client for verification
-    const authClient = createClient({
-      projectId,
-      auth: { mode: "headless" }
-    });
-
     // Verify JWT token if provided (some operations require auth)
     const authHeader = req.headers.get("Authorization");
     let authenticatedUserId: string | null = null;
 
     if (authHeader) {
       try {
-        const token = authHeader.replace(/^Bearer\s+/i, "");
-        if (token) {
-          authClient.auth.setToken(token);
-          const user = await authClient.auth.me();
-          if (user && user.id) {
-            authenticatedUserId = user.id;
-          }
+        const auth = await (blink.auth as any).verifyToken(authHeader);
+        if (auth.valid && auth.userId) {
+          authenticatedUserId = auth.userId;
         }
       } catch (authError) {
         console.warn("Auth verification failed:", authError);

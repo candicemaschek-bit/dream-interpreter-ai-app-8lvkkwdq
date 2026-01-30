@@ -26,21 +26,15 @@ const blink = createClient({
 })
 
 // Helper to verify token using Blink SDK
-async function verifyToken(token: string): Promise<{ id: string } | null> {
+async function verifyToken(token: string): Promise<{ id: string; email?: string } | null> {
   try {
-    const userBlink = createClient({
-      projectId,
-      auth: { mode: "headless" }
-    });
-    userBlink.auth.setToken(token);
-    
-    const userData = await userBlink.auth.me();
-    if (!userData || !userData.id) {
-      console.error("Token verification failed: No user in response");
+    const auth = await (blink.auth as any).verifyToken(token);
+    if (!auth.valid || !auth.userId) {
+      console.error("Token verification failed:", auth.error);
       return null;
     }
 
-    return { id: userData.id };
+    return { id: auth.userId, email: auth.email };
   } catch (err) {
     console.error("Auth verification failed:", err);
     return null;

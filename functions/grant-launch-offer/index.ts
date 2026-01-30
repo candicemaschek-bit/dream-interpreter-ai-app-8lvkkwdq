@@ -37,15 +37,15 @@ async function handler(req: Request): Promise<Response> {
       });
     }
     
-    // Parse Bearer token
-    const token = authHeader.replace(/^Bearer\s+/i, "");
     console.log("Verifying token for grant-launch-offer...");
-    authClient.auth.setToken(token);
     let user;
     try {
-      user = await authClient.auth.me();
+      const auth = await (blink.auth as any).verifyToken(authHeader);
+      if (auth.valid && auth.userId) {
+        user = { id: auth.userId, email: auth.email };
+      }
     } catch (authErr) {
-      console.error("auth.me() failed:", authErr);
+      console.error("Token verification failed:", authErr);
     }
 
     if (!user || !user.id) {

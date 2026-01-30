@@ -25,19 +25,18 @@ const secretKey = Deno.env.get("BLINK_SECRET_KEY")!;
 // Helper to verify token using Blink SDK (same pattern as reflection-messages)
 async function verifyToken(token: string): Promise<{ id: string } | null> {
   try {
-    const userBlink = createClient({
+    const blink = createClient({
       projectId,
-      auth: { mode: "headless" }
+      secretKey
     });
-    userBlink.auth.setToken(token);
     
-    const userData = await userBlink.auth.me();
-    if (!userData || !userData.id) {
-      console.error("Token verification failed: No user in response");
+    const auth = await (blink.auth as any).verifyToken(token);
+    if (!auth.valid || !auth.userId) {
+      console.error("Token verification failed:", auth.error);
       return null;
     }
 
-    return { id: userData.id };
+    return { id: auth.userId };
   } catch (err) {
     console.error("Auth verification failed:", err);
     return null;

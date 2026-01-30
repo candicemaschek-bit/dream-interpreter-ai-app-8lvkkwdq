@@ -35,15 +35,15 @@ async function handler(req: Request): Promise<Response> {
       });
     }
 
-    // Auth client for verification
-    const authClient = createClient({
-      projectId,
-      auth: { mode: "headless" }
-    });
-
-    const token = authHeader.replace(/^Bearer\s+/i, "");
-    authClient.auth.setToken(token);
-    const user = await authClient.auth.me();
+    let user;
+    try {
+      const auth = await (blink.auth as any).verifyToken(authHeader);
+      if (auth.valid && auth.userId) {
+        user = { id: auth.userId, email: auth.email };
+      }
+    } catch (authErr) {
+      console.error("Token verification failed:", authErr);
+    }
 
     if (!user || !user.id) {
       return new Response(JSON.stringify({ error: "Invalid token" }), {

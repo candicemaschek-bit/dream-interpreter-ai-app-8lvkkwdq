@@ -296,33 +296,28 @@ async function handler(req: Request): Promise<Response> {
     });
     console.log("✅ Admin client created successfully");
 
-    // Verify auth token using SDK me() approach with the admin client
-    // Since we have the secretKey, we can verify tokens manually or use me() on a user-scoped client
+    // Verify auth token using SDK verifyToken approach with the admin client
     console.log("🔍 Verifying auth token...");
     let currentUserId: string;
     let currentUserEmail: string | undefined;
 
     try {
       const token = authHeader.replace(/^Bearer\s+/i, "");
-      const userClient = createClient({ 
-        projectId,
-        publishableKey,
-        auth: { mode: 'headless' }
-      });
-      userClient.auth.setToken(token);
       
-      const user = await userClient.auth.me();
+      // Use verifyToken with the admin client (which has secretKey)
+      const auth = await (blink.auth as any).verifyToken(token);
       
-      if (!user || !user.id) {
-        console.error("❌ Token verification failed: User not found");
+      if (!auth.valid || !auth.userId) {
+        console.error("❌ Token verification failed:", auth.error || "No user in response");
         return errorResponse("Token expired or invalid", 401, {
           code: "AUTH_FAILED",
           hint: "Client should refresh token and retry",
+          details: auth.error
         });
       }
 
-      currentUserId = user.id;
-      currentUserEmail = user.email;
+      currentUserId = auth.userId;
+      currentUserEmail = auth.email;
       console.log("✅ Authenticated user:", currentUserId);
     } catch (authErr) {
       const errMsg = authErr instanceof Error ? authErr.message : String(authErr);

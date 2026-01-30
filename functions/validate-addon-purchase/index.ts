@@ -196,17 +196,18 @@ serve(async (req) => {
     });
   }
 
-  const blink = createClient({ projectId: PROJECT_ID, auth: { mode: "headless" } });
-  blink.auth.setToken(token);
-
-  let currentUserId: string | undefined;
-  try {
-    const me = await blink.auth.me();
-    currentUserId = me?.id;
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return errorResponse("Not authenticated", 401, { code: "AUTH_FAILED", details: msg });
-  }
+    const blink = createClient({ projectId: PROJECT_ID, secretKey: Deno.env.get("BLINK_SECRET_KEY") });
+    
+    let currentUserId: string | undefined;
+    try {
+      const auth = await (blink.auth as any).verifyToken(token);
+      if (auth.valid) {
+        currentUserId = auth.userId;
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      return errorResponse("Not authenticated", 401, { code: "AUTH_FAILED", details: msg });
+    }
 
   if (!currentUserId) {
     return errorResponse("Not authenticated", 401, { code: "AUTH_FAILED" });
