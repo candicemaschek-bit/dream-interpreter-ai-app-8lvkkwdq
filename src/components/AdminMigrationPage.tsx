@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { blink } from '../blink/client'
 import { supabaseService } from '../lib/supabaseService'
 import { getAllTableNames } from '../utils/databaseSchema'
+import { lazyMigrationService } from '../utils/lazyMigration'
 import { Button } from './ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
@@ -74,17 +75,8 @@ export function AdminMigrationPage() {
         setCurrentTable(tableName)
         
         try {
-          // Map Blink SDK camelCase to Supabase snake_case if necessary
-          // Actually, our Supabase tables are snake_case, and blink.db returns camelCase.
-          // We need a helper to convert camelCase keys to snake_case for Supabase
-          const snakeCaseRecords = records.map(record => {
-            const snakeRecord: any = {}
-            Object.keys(record).forEach(key => {
-              const snakeKey = key.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`)
-              snakeRecord[snakeKey] = record[key]
-            })
-            return snakeRecord
-          })
+          // Use the lazyMigrationService.toSnakeCase helper for consistency
+          const snakeCaseRecords = records.map(record => lazyMigrationService.toSnakeCase(record))
 
           const result = await supabaseService.migrateTableData(tableName, snakeCaseRecords)
           migratedCount += result.count
