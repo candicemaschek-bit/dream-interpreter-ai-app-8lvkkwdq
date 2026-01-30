@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { blink } from '../blink/client'
 import { supabaseService } from '../lib/supabaseService'
+import { getAllTableNames } from '../utils/databaseSchema'
 import { Button } from './ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { Progress } from './ui/progress'
@@ -13,6 +14,7 @@ export function AdminMigrationPage() {
   const [progress, setProgress] = useState(0)
   const [status, setStatus] = useState<'idle' | 'fetching' | 'migrating' | 'completed' | 'error'>('idle')
   const [stats, setStats] = useState({ total: 0, migrated: 0, failed: 0 })
+  const [currentTable, setCurrentTable] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const startMigration = async () => {
@@ -21,64 +23,91 @@ export function AdminMigrationPage() {
       setStatus('fetching')
       setError(null)
       
-      // 1. Fetch all dreams from Blink DB
-      const blinkDreams = await blink.db.dreams.list()
-      const total = blinkDreams.length
-      
-      if (total === 0) {
-        setStatus('completed')
-        setIsMigrating(false)
-        toast.info('No dreams found in Blink DB to migrate.')
-        return
-      }
+      const tables = getAllTableNames().filter(t => ![
+        'magic_link_tokens',
+        'email_verification_tokens',
+        'password_reset_tokens',
+        'users'
+      ].includes(t))
 
-      setStats({ total, migrated: 0, failed: 0 })
-      setStatus('migrating')
-
-      // 2. Migrate each dream to Supabase
+      let totalRecords = 0
       let migratedCount = 0
       let failedCount = 0
 
-      for (let i = 0; i < blinkDreams.length; i++) {
-        const dream = blinkDreams[i]
+      // 1. Calculate total records across all tables
+      setStatus('fetching')
+      const tableData: Record<string, any[]> = {}
+      
+      for (const tableName of tables) {
+        setCurrentTable(tableName)
         try {
-          // Check if dream already exists in Supabase (optional, but good for idempotency)
-          // For now, we'll just attempt to create it. supabaseService.createDream will handle insertion.
+          const tableNameCamelCase = tableName.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase())
+          const blinkTable = (blink.db as any)[tableNameCamelCase]
           
-          await supabaseService.createDream({
-            id: dream.id,
-            user_id: dream.userId,
-            title: dream.title,
-            description: dream.description,
-            input_type: dream.inputType,
-            image_url: dream.imageUrl || null,
-            symbols_data: dream.symbolsData || null,
-            interpretation: dream.interpretation || null,
-            video_url: dream.videoUrl || null,
-            tags: Array.isArray(dream.tags) ? dream.tags.join(',') : (dream.tags || null),
-            created_at: dream.createdAt,
-            updated_at: dream.updatedAt
+          if (blinkTable && typeof blinkTable.list === 'function') {
+            const records = await blinkTable.list({ limit: 1000 }) // Adjust limit as needed
+            tableData[tableName] = records
+            totalRecords += records.length
+          }
+        } catch (e) {
+          console.warn(`Could not fetch data for table ${tableName}:`, e)
+        }
+      }
+
+      if (totalRecords === 0) {
+        setStatus('completed')
+        setIsMigrating(false)
+        toast.info('No data found in Blink DB to migrate.')
+        return
+      }
+
+      setStats({ total: totalRecords, migrated: 0, failed: 0 })
+      setStatus('migrating')
+
+      // 2. Migrate each table's data to Supabase
+      let processedRecords = 0
+
+      for (const tableName of tables) {
+        const records = tableData[tableName]
+        if (!records || records.length === 0) continue
+
+        setCurrentTable(tableName)
+        
+        try {
+          // Map Blink SDK camelCase to Supabase snake_case if necessary
+          // Actually, our Supabase tables are snake_case, and blink.db returns camelCase.
+          // We need a helper to convert camelCase keys to snake_case for Supabase
+          const snakeCaseRecords = records.map(record => {
+            const snakeRecord: any = {}
+            Object.keys(record).forEach(key => {
+              const snakeKey = key.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`)
+              snakeRecord[snakeKey] = record[key]
+            })
+            return snakeRecord
           })
-          
-          migratedCount++
+
+          const result = await supabaseService.migrateTableData(tableName, snakeCaseRecords)
+          migratedCount += result.count
+          failedCount += (records.length - result.count)
         } catch (e: any) {
-          console.error(`Failed to migrate dream ${dream.id}:`, e)
-          failedCount++
+          console.error(`Failed to migrate table ${tableName}:`, e)
+          failedCount += records.length
         }
 
-        const currentProgress = Math.round(((i + 1) / total) * 100)
-        setProgress(currentProgress)
-        setStats(prev => ({ ...prev, migrated: migratedCount, failed: failedCount }))
+        processedRecords += records.length
+        setProgress(Math.round((processedRecords / totalRecords) * 100))
+        setStats({ total: totalRecords, migrated: migratedCount, failed: failedCount })
       }
 
       setStatus('completed')
-      toast.success(`Migration completed: ${migratedCount} migrated, ${failedCount} failed.`)
+      toast.success(`Migration completed: ${migratedCount} records migrated, ${failedCount} failed.`)
     } catch (err: any) {
       console.error('Migration error:', err)
       setError(err.message || 'An unexpected error occurred during migration.')
       setStatus('error')
     } finally {
       setIsMigrating(false)
+      setCurrentTable(null)
     }
   }
 
@@ -88,7 +117,7 @@ export function AdminMigrationPage() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Data Migration</h1>
           <p className="text-muted-foreground">
-            Migrate dream records from Blink DB to Supabase.
+            Migrate data records from Blink DB to Supabase.
           </p>
         </div>
       </div>
@@ -98,7 +127,7 @@ export function AdminMigrationPage() {
           <CardHeader>
             <CardTitle>Migration Status</CardTitle>
             <CardDescription>
-              Transfer all dream data to ensure consistency across platforms.
+              Transfer all data to ensure consistency across platforms.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -122,8 +151,8 @@ export function AdminMigrationPage() {
                 </div>
                 <Progress value={progress} className="h-2" />
                 <p className="text-xs text-center text-muted-foreground">
-                  {status === 'fetching' && 'Fetching dreams from Blink DB...'}
-                  {status === 'migrating' && `Migrating dream ${stats.migrated + stats.failed + 1} of ${stats.total}...`}
+                  {status === 'fetching' && `Fetching data from ${currentTable || 'Blink DB'}...`}
+                  {status === 'migrating' && `Migrating table: ${currentTable}...`}
                   {status === 'completed' && 'Migration finished successfully!'}
                   {status === 'error' && 'Migration halted due to an error.'}
                 </p>
@@ -173,7 +202,7 @@ export function AdminMigrationPage() {
               <CheckCircle2 className="h-4 w-4 text-green-600" />
               <AlertTitle className="text-green-800">Migration Successful</AlertTitle>
               <AlertDescription className="text-green-700">
-                All dream records have been processed. You can now verify the data in your Supabase dashboard.
+                All data records have been processed. You can now verify the data in your Supabase dashboard.
               </AlertDescription>
             </Alert>
           )}
@@ -193,8 +222,8 @@ export function AdminMigrationPage() {
               <CardTitle className="text-sm font-medium">Important Notes</CardTitle>
             </CardHeader>
             <CardContent className="text-xs space-y-2 text-muted-foreground">
-              <p>• This process iterates through all dreams in the Blink database.</p>
-              <p>• Records are inserted into Supabase using the <code>createDream</code> service method.</p>
+              <p>• This process iterates through all tables in the Blink database.</p>
+              <p>• Records are inserted into Supabase using the <code>migrateTableData</code> service method.</p>
               <p>• ID mapping is preserved (original Blink IDs are used in Supabase).</p>
               <p>• This should typically only be run once during the platform transition.</p>
             </CardContent>
