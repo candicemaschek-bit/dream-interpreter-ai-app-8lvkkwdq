@@ -19,6 +19,7 @@ import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from './comp
 import { Sparkles, User, LogOut, TrendingUp, Settings, Mic, Shield, BookOpen, TreeDeciduous, Users, Map as MapIcon, Menu } from 'lucide-react'
 import { blink } from './blink/client'
 import { UserProfile } from './types/profile'
+import { supabaseService } from './lib/supabaseService'
 import { logPlatformInfo } from './utils/platformDetection'
 import { isAdmin } from './utils/roleChecking'
 import { useInlineReauth } from './hooks/useInlineReauth'
@@ -247,17 +248,14 @@ function App() {
         clearTimeout(engagementCheckTimeoutRef.current)
       }
 
-      // Fetch dreams to build engagement context (guarded to avoid DB rate limiting)
-      const dreams = await withDbRateLimitGuard(`app:engagement:dreams:${user.id}`, () =>
-        blink.db.dreams.list({
-          where: { userId: user.id },
-          orderBy: { createdAt: 'desc' },
-          limit: 50,
-        })
-      )
-      const gamification = await withDbRateLimitGuard(`app:engagement:gamification:${user.id}`, () =>
-        blink.db.gamificationProfiles.list({ where: { userId: user.id }, limit: 1 })
-      )
+      // Fetch dreams to build engagement context from Supabase
+      const dreams = await supabaseService.getDreams(user.id)
+      
+      const { data: gamification } = await supabaseService.supabase
+        .from('gamification_profiles')
+        .select('*')
+        .eq('user_id', user.id)
+        .limit(1)
 
       const dreamData = {
         totalCount: dreams.length,
@@ -277,8 +275,8 @@ function App() {
         userId: user.id,
         totalDreamsLogged: dreamData.totalCount,
         lastDreamLoggedAt: dreamData.lastLoggedAt,
-        currentStreak: gamification.length > 0 ? (gamification[0] as any).current_streak || 0 : 0,
-        bestStreak: gamification.length > 0 ? (gamification[0] as any).best_streak || 0 : 0,
+        currentStreak: gamification && gamification.length > 0 ? (gamification[0] as any).current_streak || 0 : 0,
+        bestStreak: gamification && gamification.length > 0 ? (gamification[0] as any).best_streak || 0 : 0,
         lastAppOpenedAt: user.last_sign_in,
         subscriptionTier: userProfile?.subscriptionTier || 'free',
         recurringSymbols: dreamData.recurringSymbols,
@@ -316,24 +314,17 @@ function App() {
     try {
       // Execute checks in parallel for faster loading
       const [profileResult, adminResult, launchOfferResult] = await Promise.allSettled([
-        withDbRateLimitGuard(`app:userProfile:${user.id}`, () =>
-          blink.db.userProfiles.list({
-            where: { userId: user.id },
-            limit: 1,
-          })
-        ),
+        supabaseService.getProfile(user.id),
         isAdmin(user.id),
         getLaunchOfferStatus(user.id)
       ])
 
       // Handle profile and launch offer result
       if (profileResult.status === 'fulfilled') {
-        const profiles = profileResult.value
-        if (profiles.length === 0) {
+        const profile = profileResult.value
+        if (!profile) {
           setNeedsOnboarding(true)
         } else {
-          const profile = profiles[0] as UserProfileRow
-          
           // Get launch offer status
           let hasLaunchOffer = false
           if (launchOfferResult.status === 'fulfilled') {
@@ -342,10 +333,10 @@ function App() {
 
           const processedProfile = {
             ...profile,
-            age: typeof profile.age === 'string' ? parseInt(profile.age) : profile.age,
-            nightmareProne: Number(profile.nightmareProne) > 0,
-            recurringDreams: Number(profile.recurringDreams) > 0,
-            onboardingCompleted: Number(profile.onboardingCompleted) > 0,
+            age: profile.age,
+            nightmareProne: profile.nightmare_prone,
+            recurringDreams: profile.recurring_dreams,
+            onboardingCompleted: profile.onboarding_completed,
             hasLaunchOffer // Inject into profile object
           }
           setUserProfile(processedProfile as unknown as UserProfile)
@@ -369,27 +360,21 @@ function App() {
 
   async function checkOnboardingStatus() {
     try {
-      const [profiles, launchOffer] = await Promise.all([
-        withDbRateLimitGuard(`app:onboardingProfile:${user.id}`, () =>
-          blink.db.userProfiles.list({
-            where: { userId: user.id },
-            limit: 1,
-          })
-        ),
+      const [profile, launchOffer] = await Promise.all([
+        supabaseService.getProfile(user.id),
         getLaunchOfferStatus(user.id)
       ])
       
-      if (profiles.length === 0) {
+      if (!profile) {
         setNeedsOnboarding(true)
       } else {
-        const profile = profiles[0] as UserProfileRow
         // Ensure age is a number
         const processedProfile = {
           ...profile,
-          age: typeof profile.age === 'string' ? parseInt(profile.age) : profile.age,
-          nightmareProne: Number(profile.nightmareProne) > 0,
-          recurringDreams: Number(profile.recurringDreams) > 0,
-          onboardingCompleted: Number(profile.onboardingCompleted) > 0,
+          age: profile.age,
+          nightmareProne: profile.nightmare_prone,
+          recurringDreams: profile.recurring_dreams,
+          onboardingCompleted: profile.onboarding_completed,
           hasLaunchOffer: launchOffer.hasLaunchOffer
         }
         setUserProfile(processedProfile as unknown as UserProfile)
