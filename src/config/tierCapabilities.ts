@@ -207,8 +207,8 @@ export const TIER_CAPABILITIES: Record<SubscriptionTier, TierCapabilities> = {
     hasVoiceRecording: true,
     
     // Video
-    canGenerateVideos: false, // No 6-second videos
-    videoGenerationsPerMonth: 0,
+    canGenerateVideos: true, // HD 6-second videos per dream
+    videoGenerationsPerMonth: 20,
     canGenerateDreamworlds: false, // Can purchase but not included
     dreamworldsPerMonth: 0,
     dreamworldsPrice: 6.99,
@@ -264,8 +264,8 @@ export const TIER_CAPABILITIES: Record<SubscriptionTier, TierCapabilities> = {
     hasVoiceRecording: true,
     
     // Video
-    canGenerateVideos: false, // No 6-second videos
-    videoGenerationsPerMonth: 0,
+    canGenerateVideos: true, // HD 6-second videos included
+    videoGenerationsPerMonth: 25,
     canGenerateDreamworlds: true, // Included in subscription
     dreamworldsPerMonth: 1, // 1 included per month
     dreamworldsPrice: 6.99, // Additional after first

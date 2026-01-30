@@ -55,7 +55,7 @@ const VIDEO_LIMITS: Record<string, number> = {
   free: 0,
   pro: 0,
   premium: 20, // 20 videos per month
-  vip: 1, // VIP gets 1 Dreamworlds (45-sec) per month
+  vip: 25, // 25 videos per month (includes 45-sec Dreamworlds)
 };
 const PRIORITY_LEVELS: Record<string, number> = {
   vip: 100,
@@ -122,13 +122,12 @@ function validateRequestPayload(payload: unknown): { valid: boolean; error?: str
 
 /**
  * Verify user's subscription tier allows video generation
- * ONLY VIP tier has access to 45-second Dreamworlds videos
  */
 function verifySubscriptionTier(tier: string): { authorized: boolean; error?: string } {
   if (!ALLOWED_VIDEO_GENERATION_TIERS.has(tier)) {
     return {
       authorized: false,
-      error: `Video generation (45-second Dreamworlds) is only available for VIP tier. Current tier: ${tier}. Upgrade to VIP to unlock cinematic dream videos.`
+      error: `Video generation is only available for Premium and VIP tiers. Current tier: ${tier}. Upgrade to unlock cinematic dream videos.`
     };
   }
   return { authorized: true };
