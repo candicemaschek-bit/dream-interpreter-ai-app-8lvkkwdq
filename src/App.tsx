@@ -340,12 +340,9 @@ function App() {
             hasLaunchOffer = launchOfferResult.value.hasLaunchOffer
           }
 
+          // Use application types (camelCase) from supabaseService
           const processedProfile = {
             ...profile,
-            age: profile.age,
-            nightmareProne: profile.nightmare_prone,
-            recurringDreams: profile.recurring_dreams,
-            onboardingCompleted: profile.onboarding_completed,
             hasLaunchOffer // Inject into profile object
           }
           setUserProfile(processedProfile as unknown as UserProfile)
@@ -377,13 +374,9 @@ function App() {
       if (!profile) {
         setNeedsOnboarding(true)
       } else {
-        // Ensure age is a number
+        // Use application types (camelCase) from supabaseService
         const processedProfile = {
           ...profile,
-          age: profile.age,
-          nightmareProne: profile.nightmare_prone,
-          recurringDreams: profile.recurring_dreams,
-          onboardingCompleted: profile.onboarding_completed,
           hasLaunchOffer: launchOffer.hasLaunchOffer
         }
         setUserProfile(processedProfile as unknown as UserProfile)

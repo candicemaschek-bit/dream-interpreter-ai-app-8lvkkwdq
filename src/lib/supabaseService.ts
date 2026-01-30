@@ -14,13 +14,9 @@ function getSupabaseClient() {
   return supabase
 }
 
-// Legacy helper for backwards compatibility (throws error)
+// Legacy helper for backwards compatibility - returns null instead of throwing
 function requireSupabase() {
-  const client = getSupabaseClient()
-  if (!client) {
-    throw new Error('Supabase is not configured. Please check your environment variables.')
-  }
-  return client
+  return getSupabaseClient()
 }
 
 export const supabaseService = {
@@ -51,7 +47,8 @@ export const supabaseService = {
   },
 
   async getDreamById(id: string) {
-    const client = requireSupabase()
+    const client = getSupabaseClient()
+    if (!client) return null
     const { data, error } = await client
       .from('dreams')
       .select('*')
@@ -63,7 +60,8 @@ export const supabaseService = {
   },
 
   async createDream(dream: Database['public']['Tables']['dreams']['Insert']) {
-    const client = requireSupabase()
+    const client = getSupabaseClient()
+    if (!client) return null
     const { data, error } = await client
       .from('dreams')
       .insert(dream)
@@ -75,7 +73,8 @@ export const supabaseService = {
   },
 
   async updateDream(id: string, updates: Database['public']['Tables']['dreams']['Update']) {
-    const client = requireSupabase()
+    const client = getSupabaseClient()
+    if (!client) return null
     const { data, error } = await client
       .from('dreams')
       .update(updates)
@@ -88,7 +87,8 @@ export const supabaseService = {
   },
 
   async deleteDream(id: string) {
-    const client = requireSupabase()
+    const client = getSupabaseClient()
+    if (!client) return
     const { error } = await client
       .from('dreams')
       .delete()
@@ -115,7 +115,8 @@ export const supabaseService = {
   },
 
   async upsertProfile(profile: Database['public']['Tables']['user_profiles']['Insert']) {
-    const client = requireSupabase()
+    const client = getSupabaseClient()
+    if (!client) return null
     const { data, error } = await client
       .from('user_profiles')
       .upsert(profile)
