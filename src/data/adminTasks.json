@@ -1,0 +1,56 @@
+{
+  "tasks": [
+    {
+      "id": "task-001",
+      "title": "Complete Revenue Admin Page",
+      "description": "Create /admin/revenue page with subscription analytics, payment tracking, and revenue projections",
+      "priority": "high",
+      "status": "todo",
+      "progress": 0,
+      "dueDate": "2025-11-22",
+      "orderIndex": 1,
+      "tags": ["ui", "payments"],
+      "createdAt": "2025-11-15T02:40:00Z",
+      "updatedAt": "2025-11-15T02:40:00Z"
+    },
+    {
+      "id": "task-002",
+      "title": "Implement Bulk User Operations",
+      "description": "Add bulk actions to User Management: bulk suspend, bulk tier upgrade, CSV export, and email campaigns",
+      "priority": "medium",
+      "status": "todo",
+      "progress": 0,
+      "dueDate": "2025-11-25",
+      "orderIndex": 2,
+      "tags": ["ui", "database"],
+      "createdAt": "2025-11-15T02:40:00Z",
+      "updatedAt": "2025-11-15T02:40:00Z"
+    },
+    {
+      "id": "task-003",
+      "title": "Add Sidebar Layout to Admin Pages",
+      "description": "Create persistent sidebar with navigation and living task list for better UX",
+      "priority": "high",
+      "status": "in-progress",
+      "progress": 60,
+      "dueDate": "2025-11-18",
+      "orderIndex": 3,
+      "tags": ["ui", "layout"],
+      "createdAt": "2025-11-15T02:40:00Z",
+      "updatedAt": "2025-11-15T02:40:00Z"
+    },
+    {
+      "id": "task-004",
+      "title": "Implement Task Completion Tracking",
+      "description": "Build UI for marking tasks complete, tracking progress, and persisting state",
+      "priority": "medium",
+      "status": "todo",
+      "progress": 0,
+      "dueDate": "2025-11-19",
+      "orderIndex": 4,
+      "tags": ["ui", "state"],
+      "createdAt": "2025-11-15T02:40:00Z",
+      "updatedAt": "2025-11-15T02:40:00Z"
+    }
+  ]
+}

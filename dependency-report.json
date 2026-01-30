@@ -1,0 +1,1407 @@
+{
+  "timestamp": "2025-12-18T13:04:32.300Z",
+  "filesScanned": 288,
+  "issues": [
+    {
+      "file": "AdminAnalytics.tsx",
+      "type": "Self-reference in declaration",
+      "line": 45,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "AdminDashboard.tsx",
+      "type": "Self-reference in declaration",
+      "line": 39,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "AdminDashboard.tsx",
+      "type": "Self-reference in declaration",
+      "line": 41,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "AdminDebugUsersPage.tsx",
+      "type": "Self-reference in declaration",
+      "line": 50,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "AdminLaunchOfferUsers.tsx",
+      "type": "Self-reference in declaration",
+      "line": 45,
+      "issue": "Variable 'globalSettings' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "AdminSetupHelper.tsx",
+      "type": "Self-reference in declaration",
+      "line": 32,
+      "issue": "Variable 'i' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "AdminSetupHelper.tsx",
+      "type": "Self-reference in declaration",
+      "line": 48,
+      "issue": "Variable 'hostname' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "CaptureRecommendationModal.tsx",
+      "type": "Self-reference in declaration",
+      "line": 50,
+      "issue": "Variable 'category' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamCanvas.tsx",
+      "type": "Self-reference in declaration",
+      "line": 25,
+      "issue": "Variable 'width' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamCard.tsx",
+      "type": "Self-reference in declaration",
+      "line": 269,
+      "issue": "Variable 'token' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamInput.tsx",
+      "type": "Self-reference in declaration",
+      "line": 158,
+      "issue": "Variable 'dreamsAnalyzedThisMonth' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamInput.tsx",
+      "type": "Self-reference in declaration",
+      "line": 159,
+      "issue": "Variable 'lastResetDate' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamInput.tsx",
+      "type": "Self-reference in declaration",
+      "line": 160,
+      "issue": "Variable 'subscriptionTier' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamInput.tsx",
+      "type": "Self-reference in declaration",
+      "line": 406,
+      "issue": "Variable 'retry' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamInterpretationResults.tsx",
+      "type": "Self-reference in declaration",
+      "line": 144,
+      "issue": "Variable 'userProfiles' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamInterpretationResults.tsx",
+      "type": "Self-reference in declaration",
+      "line": 277,
+      "issue": "Variable 'userProfiles' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamLibrary.tsx",
+      "type": "Self-reference in declaration",
+      "line": 101,
+      "issue": "Variable 'generatedAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamStatistics.tsx",
+      "type": "Self-reference in declaration",
+      "line": 68,
+      "issue": "Variable 'tags' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamStatistics.tsx",
+      "type": "Self-reference in declaration",
+      "line": 82,
+      "issue": "Variable 'tags' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "EmotionHeatmap.tsx",
+      "type": "Self-reference in declaration",
+      "line": 128,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "Onboarding.tsx",
+      "type": "Self-reference in declaration",
+      "line": 90,
+      "issue": "Variable 'match' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "Onboarding.tsx",
+      "type": "Self-reference in declaration",
+      "line": 293,
+      "issue": "Variable 'value' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "PrivacyAuditTrail.tsx",
+      "type": "Self-reference in declaration",
+      "line": 93,
+      "issue": "Variable 'patternTrackingConsent' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "PrivacyAuditTrail.tsx",
+      "type": "Self-reference in declaration",
+      "line": 116,
+      "issue": "Variable 'redactTrauma' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "PrivacyAuditTrail.tsx",
+      "type": "Self-reference in declaration",
+      "line": 117,
+      "issue": "Variable 'redactSexuality' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "PrivacyAuditTrail.tsx",
+      "type": "Self-reference in declaration",
+      "line": 118,
+      "issue": "Variable 'redactViolence' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "PrivacyAuditTrail.tsx",
+      "type": "Self-reference in declaration",
+      "line": 119,
+      "issue": "Variable 'redactFears' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "PrivacyAuditTrail.tsx",
+      "type": "Self-reference in declaration",
+      "line": 149,
+      "issue": "Variable 'onboardingPrivacyReviewedAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "PrivacyAuditTrail.tsx",
+      "type": "Self-reference in declaration",
+      "line": 200,
+      "issue": "Variable 'metadata' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "ProfileSettings.tsx",
+      "type": "Self-reference in declaration",
+      "line": 145,
+      "issue": "Variable 'age' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "ReflectAIChat.tsx",
+      "type": "Self-reference in declaration",
+      "line": 279,
+      "issue": "Variable 'steps' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "ReflectAICreditIndicator.tsx",
+      "type": "Self-reference in declaration",
+      "line": 69,
+      "issue": "Variable 'creditsRemaining' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "ReflectionAnalyticsDashboard.tsx",
+      "type": "Self-reference in declaration",
+      "line": 145,
+      "issue": "Variable 'i' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "ReflectionJournal.tsx",
+      "type": "Self-reference in declaration",
+      "line": 134,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "RequestEmailVerification.tsx",
+      "type": "Self-reference in declaration",
+      "line": 28,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "SensitiveContentSettings.tsx",
+      "type": "Self-reference in declaration",
+      "line": 221,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "SignIn.tsx",
+      "type": "Self-reference in declaration",
+      "line": 142,
+      "issue": "Variable 'attempts' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "UsageAnalytics.tsx",
+      "type": "Self-reference in declaration",
+      "line": 85,
+      "issue": "Variable 'projectedCost' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "VideoGenerationNotifications.tsx",
+      "type": "Self-reference in declaration",
+      "line": 39,
+      "issue": "Variable 'completedAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "VideoPlayerScreen.tsx",
+      "type": "Self-reference in declaration",
+      "line": 20,
+      "issue": "Variable 'blob' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "VoiceRecorder.tsx",
+      "type": "Self-reference in declaration",
+      "line": 578,
+      "issue": "Variable 'subscriptionTier' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "collapsible.tsx",
+      "type": "Self-reference in declaration",
+      "line": 7,
+      "issue": "Variable 'CollapsibleTrigger' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "collapsible.tsx",
+      "type": "Self-reference in declaration",
+      "line": 9,
+      "issue": "Variable 'CollapsibleContent' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "aiPrompts.ts",
+      "type": "Self-reference in declaration",
+      "line": 60,
+      "issue": "Variable 'age' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "useInlineReauth.ts",
+      "type": "Self-reference in declaration",
+      "line": 85,
+      "issue": "Variable 'token' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "useInlineReauth.ts",
+      "type": "Self-reference in declaration",
+      "line": 114,
+      "issue": "Variable 'message' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "useInlineReauth.ts",
+      "type": "Self-reference in declaration",
+      "line": 115,
+      "issue": "Variable 'code' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "DreamDetailPage.tsx",
+      "type": "Self-reference in declaration",
+      "line": 146,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "MagicLinkAuthPage.tsx",
+      "type": "Self-reference in declaration",
+      "line": 78,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "ReflectAIPage.tsx",
+      "type": "Self-reference in declaration",
+      "line": 24,
+      "issue": "Variable 'sessionId' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolica.ts",
+      "type": "Self-reference in declaration",
+      "line": 171,
+      "issue": "Variable 'contexts' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolica.ts",
+      "type": "Self-reference in declaration",
+      "line": 172,
+      "issue": "Variable 'emotionalValence' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "abuseDetection.ts",
+      "type": "Self-reference in declaration",
+      "line": 110,
+      "issue": "Variable 'createdAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "authHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 36,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "authHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 44,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "authHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 163,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "authHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 321,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "authHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 377,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "authHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 410,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "communityService.ts",
+      "type": "Self-reference in declaration",
+      "line": 337,
+      "issue": "Variable 'territory' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "croReportGenerator.ts",
+      "type": "Self-reference in declaration",
+      "line": 43,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "croReportGenerator.ts",
+      "type": "Self-reference in declaration",
+      "line": 56,
+      "issue": "Variable 'onboardingCompleted' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamInputCheckpoints.ts",
+      "type": "Self-reference in declaration",
+      "line": 142,
+      "issue": "Variable 'steps' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 76,
+      "issue": "Variable 'steps' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 237,
+      "issue": "Variable 'nightmareProne' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 376,
+      "issue": "Variable 'commonElements' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 405,
+      "issue": "Variable 'i' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 438,
+      "issue": "Variable 'steps' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 498,
+      "issue": "Variable 'steps' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 542,
+      "issue": "Variable 'occurrences' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 553,
+      "issue": "Variable 'themes' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 614,
+      "issue": "Variable 'cycles' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 617,
+      "issue": "Variable 'occurrences' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 625,
+      "issue": "Variable 'i' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "featureRequestOperations.ts",
+      "type": "Self-reference in declaration",
+      "line": 9,
+      "issue": "Variable 'db' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "imageWatermarking.ts",
+      "type": "Self-reference in declaration",
+      "line": 21,
+      "issue": "Variable 'blob' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "imageWatermarking.ts",
+      "type": "Self-reference in declaration",
+      "line": 53,
+      "issue": "Variable 'padding' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "imageWatermarking.ts",
+      "type": "Self-reference in declaration",
+      "line": 163,
+      "issue": "Variable 'padding' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "inputValidation.ts",
+      "type": "Self-reference in declaration",
+      "line": 92,
+      "issue": "Variable 'maxSize' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "inputValidation.ts",
+      "type": "Self-reference in declaration",
+      "line": 93,
+      "issue": "Variable 'allowedTypes' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "interpretationParser.ts",
+      "type": "Self-reference in declaration",
+      "line": 237,
+      "issue": "Variable 'match' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "interpretationParser.ts",
+      "type": "Self-reference in declaration",
+      "line": 239,
+      "issue": "Variable 'index' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "journalExport.ts",
+      "type": "Self-reference in declaration",
+      "line": 80,
+      "issue": "Variable 'dreams' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "journalExport.ts",
+      "type": "Self-reference in declaration",
+      "line": 199,
+      "issue": "Variable 'i' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "launchOfferManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 35,
+      "issue": "Variable 'signupNumber' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "launchOfferManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 108,
+      "issue": "Variable 'offerActivated' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "launchOfferManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 109,
+      "issue": "Variable 'signupNumber' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 61,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 86,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 104,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 122,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 141,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 168,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 186,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 205,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "offlineStorage.ts",
+      "type": "Self-reference in declaration",
+      "line": 232,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "openGraph.ts",
+      "type": "Self-reference in declaration",
+      "line": 16,
+      "issue": "Variable 'image' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "privacyScreenTracking.ts",
+      "type": "Self-reference in declaration",
+      "line": 28,
+      "issue": "Variable 'createdAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "rateLimitGuard.ts",
+      "type": "Self-reference in declaration",
+      "line": 38,
+      "issue": "Variable 'match' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "rateLimitGuard.ts",
+      "type": "Self-reference in declaration",
+      "line": 60,
+      "issue": "Variable 'maxRetries' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "recommendationGenerator.ts",
+      "type": "Self-reference in declaration",
+      "line": 32,
+      "issue": "Variable 'steps' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "recordingAutoSave.ts",
+      "type": "Self-reference in declaration",
+      "line": 46,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "recordingAutoSave.ts",
+      "type": "Self-reference in declaration",
+      "line": 64,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "recordingAutoSave.ts",
+      "type": "Self-reference in declaration",
+      "line": 82,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "recordingAutoSave.ts",
+      "type": "Self-reference in declaration",
+      "line": 100,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "recordingAutoSave.ts",
+      "type": "Self-reference in declaration",
+      "line": 111,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "referralSystem.ts",
+      "type": "Self-reference in declaration",
+      "line": 39,
+      "issue": "Variable 'referrals' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "referralSystem.ts",
+      "type": "Self-reference in declaration",
+      "line": 64,
+      "issue": "Variable 'referrals' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "referralSystem.ts",
+      "type": "Self-reference in declaration",
+      "line": 140,
+      "issue": "Variable 'referrals' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "referralSystem.ts",
+      "type": "Self-reference in declaration",
+      "line": 146,
+      "issue": "Variable 'userProfiles' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAICredits.ts",
+      "type": "Self-reference in declaration",
+      "line": 127,
+      "issue": "Variable 'creditsTotal' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 75,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 94,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 113,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 132,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 134,
+      "issue": "Variable 'index' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 151,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 153,
+      "issue": "Variable 'index' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 177,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 181,
+      "issue": "Variable 'index' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 213,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 232,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 264,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 290,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 316,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIPatterns.ts",
+      "type": "Self-reference in declaration",
+      "line": 83,
+      "issue": "Variable 'i' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAIPatterns.ts",
+      "type": "Self-reference in declaration",
+      "line": 104,
+      "issue": "Variable 'i' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "reflectAISafety.ts",
+      "type": "Self-reference in declaration",
+      "line": 44,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "sessionManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 38,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "sessionManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 60,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "sessionManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 248,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "subscriptionHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 31,
+      "issue": "Variable 'userProfiles' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "subscriptionHelpers.ts",
+      "type": "Self-reference in declaration",
+      "line": 97,
+      "issue": "Variable 'hasLaunchOffer' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicGuide.ts",
+      "type": "Self-reference in declaration",
+      "line": 58,
+      "issue": "Variable 'jungianMeaning' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicGuide.ts",
+      "type": "Self-reference in declaration",
+      "line": 59,
+      "issue": "Variable 'archetype' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicGuide.ts",
+      "type": "Self-reference in declaration",
+      "line": 95,
+      "issue": "Variable 'contexts' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicGuide.ts",
+      "type": "Self-reference in declaration",
+      "line": 221,
+      "issue": "Variable 'limit' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicGuide.ts",
+      "type": "Self-reference in declaration",
+      "line": 572,
+      "issue": "Variable 'contexts' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicGuide.ts",
+      "type": "Self-reference in declaration",
+      "line": 573,
+      "issue": "Variable 'emotionalValence' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaExport.ts",
+      "type": "Self-reference in declaration",
+      "line": 48,
+      "issue": "Variable 'contexts' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 69,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 88,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 109,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 111,
+      "issue": "Variable 'index' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 128,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 147,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 149,
+      "issue": "Variable 'index' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 166,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 192,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 224,
+      "issue": "Variable 'transaction' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "symbolicaOffline.ts",
+      "type": "Self-reference in declaration",
+      "line": 226,
+      "issue": "Variable 'index' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "taskOperations.ts",
+      "type": "Self-reference in declaration",
+      "line": 6,
+      "issue": "Variable 'db' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "taskOperations.ts",
+      "type": "Self-reference in declaration",
+      "line": 24,
+      "issue": "Variable 'tasks' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "tokenVerification.ts",
+      "type": "Self-reference in declaration",
+      "line": 136,
+      "issue": "Variable 'users' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 234,
+      "issue": "Variable 'id' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 235,
+      "issue": "Variable 'userId' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 236,
+      "issue": "Variable 'title' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 237,
+      "issue": "Variable 'description' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 238,
+      "issue": "Variable 'inputType' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 239,
+      "issue": "Variable 'imageUrl' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 240,
+      "issue": "Variable 'symbolsData' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 241,
+      "issue": "Variable 'interpretation' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 242,
+      "issue": "Variable 'videoUrl' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 243,
+      "issue": "Variable 'createdAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 244,
+      "issue": "Variable 'updatedAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 291,
+      "issue": "Variable 'id' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 292,
+      "issue": "Variable 'userId' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 293,
+      "issue": "Variable 'title' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 294,
+      "issue": "Variable 'description' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 295,
+      "issue": "Variable 'videoUrl' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 296,
+      "issue": "Variable 'thumbnailUrl' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 297,
+      "issue": "Variable 'durationSeconds' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 298,
+      "issue": "Variable 'generatedAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 299,
+      "issue": "Variable 'createdAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "typeGuards.ts",
+      "type": "Self-reference in declaration",
+      "line": 300,
+      "issue": "Variable 'updatedAt' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "videoQueueManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 299,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    },
+    {
+      "file": "videoQueueManager.ts",
+      "type": "Self-reference in declaration",
+      "line": 532,
+      "issue": "Variable 'now' references itself in its own initialization",
+      "fix": "Ensure variable is not used before it is fully initialized"
+    }
+  ],
+  "warnings": [
+    {
+      "file": "AdminAnalytics.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "lucide-react"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "AdminFeatureItem.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/featureRequest"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "AdminModerationQueue.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/moderation"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "AdminTasksPage.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "lucide-react"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "CaptureRecommendationModal.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/featureRequest"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "DreamInput.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/dream"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "DreamWorldGenerator.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/subscription"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "DreamworldsPurchaseDialog.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/subscription"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "PricingPlans.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/subscription"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "ReportDreamDialog.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/moderation"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "VideoPlayer.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/video"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "VoiceRecorder.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../utils/recordingAutoSave"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "CommunityPage.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/community"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "PricingPage.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../types/subscription"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "ReflectAIPage.tsx",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../config/tierCapabilities"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "autoModerationService.ts",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "./sensitiveContentClassifier"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "dreamPatternTracking.ts",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../config/tierCapabilities"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "reflectAICredits.ts",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../config/tierCapabilities"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "symbolicaAICredits.ts",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "../config/tierCapabilities"
+      ],
+      "fix": "Combine imports from the same source"
+    },
+    {
+      "file": "videoBrandingOverlay.ts",
+      "issue": "Duplicate imports detected",
+      "duplicates": [
+        "./videoTierCapabilities"
+      ],
+      "fix": "Combine imports from the same source"
+    }
+  ]
+}

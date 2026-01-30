@@ -1,0 +1,26 @@
+src/components/DreamCard.tsx:        console.log(`🔐 Fresh token obtained, valid for ${secondsRemaining} seconds (${minutesRemaining} minutes)`)
+src/components/DreamCard.tsx:          console.log('✅ Fresh token obtained for retry')
+src/components/DreamInterpreting.tsx:      subtitle: 'Identifying dream symbols and patterns...',
+src/components/DreamInterpreting.tsx:      subtitle: 'Connecting meanings to your personal context...',
+src/components/DreamInterpreting.tsx:      subtitle: 'Generating your personalized dream visualization...',
+src/components/DreamInterpreting.tsx:      subtitle: 'Revealing your dream insights...',
+src/components/DreamInterpreting.tsx:                {currentStage.subtitle}
+src/pages/LandingPage.tsx:        {/* Subtle global gradient overlay for more color depth */}
+src/pages/MagicLinkAuthPage.tsx:        const tokenHash = await crypto.subtle.digest(
+src/pages/TermsPage.tsx:                <li>• If you are under 18, you have obtained parental or guardian consent to use the Service</li>
+src/pages/TermsPage.tsx:                <li>• Results obtained from the Service will be accurate or reliable</li>
+src/utils/abuseDetection.ts:    // Create hash using SubtleCrypto
+src/utils/abuseDetection.ts:    const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+src/utils/contentGuardrails.ts:  /\bterroris[tm]/gi,
+src/utils/journalExport.ts:  // Subtitle
+src/utils/journalExport.ts:  const subtitle = userName ? `${userName}'s Personal Dream Reflections` : 'Personal Dream Reflections'
+src/utils/journalExport.ts:  doc.text(subtitle, 14, 30)
+src/utils/journalExport.ts:    .subtitle {
+src/utils/journalExport.ts:    <p class="subtitle">${userName ? `${userName}'s ` : ''}Personal Dream Reflections</p>
+src/utils/journalExport.ts:    <p class="subtitle">Exported on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+src/utils/reportingService.ts:    const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+src/utils/sensitiveContentClassifier.ts:      /\bteeth\s+(falling|crumbling|breaking)\b/i
+src/utils/symbolicaExport.ts:    .subtitle {
+src/utils/symbolicaExport.ts:    <p class="subtitle">${userName ? `${userName}'s ` : ''}Personal Dream Symbol Garden</p>
+src/utils/symbolicaExport.ts:    <p class="subtitle">Exported on ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+src/utils/tokenVerification.ts:  const hashBuffer = await crypto.subtle.digest('SHA-256', data)

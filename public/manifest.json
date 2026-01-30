@@ -1,0 +1,35 @@
+{
+  "name": "Dreamcatcher AI",
+  "short_name": "Dreamcatcher AI",
+  "description": "AI-powered dream interpretation and video generation",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#1E1B4B",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "health", "entertainment"],
+  "shortcuts": [
+    {
+      "name": "New Dream",
+      "short_name": "New",
+      "description": "Record a new dream",
+      "url": "/?action=new",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Dream Library",
+      "short_name": "Library",
+      "description": "View your dream library",
+      "url": "/?view=library",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    }
+  ]
+}

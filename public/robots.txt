@@ -1,0 +1,24 @@
+# Robots.txt for Dreamcatcher AI
+# https://dream-interpreter-ai-app-8lvkkwdq.live.blink.new
+
+User-agent: *
+Allow: /
+Allow: /pricing
+Allow: /signup
+Allow: /privacy
+Allow: /terms
+Allow: /help-center
+Allow: /contact
+Allow: /early-access
+
+# Disallow admin and authenticated areas
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /settings
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://dream-interpreter-ai-app-8lvkkwdq.live.blink.new/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
