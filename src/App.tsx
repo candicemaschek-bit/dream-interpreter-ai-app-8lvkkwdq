@@ -328,11 +328,44 @@ function App() {
         getLaunchOfferStatus(user.id)
       ])
 
+      // Handle admin result FIRST - admins should skip onboarding
+      let isUserAdmin = false
+      if (adminResult.status === 'fulfilled') {
+        isUserAdmin = adminResult.value
+        setUserIsAdmin(isUserAdmin)
+        if (isUserAdmin) {
+          console.log('✅ Admin user detected - skipping onboarding check')
+        }
+      } else {
+        console.error('Error checking admin status:', adminResult.reason)
+        setUserIsAdmin(false)
+      }
+
       // Handle profile and launch offer result
       if (profileResult.status === 'fulfilled') {
         const profile = profileResult.value
         if (!profile) {
-          setNeedsOnboarding(true)
+          // CRITICAL FIX: Skip onboarding for admin users even if no profile exists
+          if (isUserAdmin) {
+            console.log('✅ Admin user has no profile but skipping onboarding - creating minimal profile')
+            // Create a minimal admin profile to prevent onboarding loop
+            const adminProfile = {
+              id: `admin_${user.id}`,
+              userId: user.id,
+              name: user.email?.split('@')[0] || 'Admin',
+              age: 0,
+              gender: 'none',
+              onboardingCompleted: true,
+              subscriptionTier: 'admin',
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+              hasLaunchOffer: false
+            }
+            setUserProfile(adminProfile as unknown as UserProfile)
+            setNeedsOnboarding(false)
+          } else {
+            setNeedsOnboarding(true)
+          }
         } else {
           // Get launch offer status
           let hasLaunchOffer = false
@@ -350,14 +383,11 @@ function App() {
         }
       } else {
         console.error('Error checking onboarding:', profileResult.reason)
-      }
-
-      // Handle admin result
-      if (adminResult.status === 'fulfilled') {
-        setUserIsAdmin(adminResult.value)
-      } else {
-        console.error('Error checking admin status:', adminResult.reason)
-        setUserIsAdmin(false)
+        // If profile check fails but user is admin, still skip onboarding
+        if (isUserAdmin) {
+          console.log('✅ Admin user - profile check failed but skipping onboarding')
+          setNeedsOnboarding(false)
+        }
       }
     } catch (error) {
       console.error('Error loading user data:', error)
