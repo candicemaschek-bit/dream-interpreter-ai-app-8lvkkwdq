@@ -248,10 +248,19 @@ function App() {
         clearTimeout(engagementCheckTimeoutRef.current)
       }
 
+      // Check if Supabase is available
+      if (!supabaseService.isAvailable()) {
+        console.warn('Engagement system: Supabase not available, skipping initialization')
+        return
+      }
+
       // Fetch dreams to build engagement context from Supabase
       const dreams = await supabaseService.getDreams(user.id)
       
-      const { data: gamification } = await supabaseService.supabase
+      const client = supabaseService.supabase
+      if (!client) return
+      
+      const { data: gamification } = await client
         .from('gamification_profiles')
         .select('*')
         .eq('user_id', user.id)
