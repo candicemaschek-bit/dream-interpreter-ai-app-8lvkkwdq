@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
-import { Shield, Users, TrendingUp, DollarSign, Calculator, LogOut, Lightbulb, Mail, Video, Bug, Activity, AlertTriangle, FileText, Sparkles, Gift } from 'lucide-react'
+import { Shield, Users, TrendingUp, DollarSign, Calculator, LogOut, Lightbulb, Mail, Video, Bug, Activity, AlertTriangle, FileText, Sparkles, Gift, Database } from 'lucide-react'
 import { blink } from '@/blink/client'
 import { cn } from '@/lib/utils'
 
@@ -30,6 +30,7 @@ const navItems: AdminNavItem[] = [
   { path: '/admin/video-queue', label: 'Video Queue', icon: <Video className="w-4 h-4" /> },
   { path: '/admin/moderation', label: 'Moderation', icon: <AlertTriangle className="w-4 h-4" /> },
   { path: '/admin/audit-trail', label: 'Audit Trail', icon: <FileText className="w-4 h-4" /> },
+  { path: '/admin/migration', label: 'Data Migration', icon: <Database className="w-4 h-4" /> },
   { path: '/admin/features', label: 'Features', icon: <Lightbulb className="w-4 h-4" /> },
   { path: '/admin/analytics', label: 'Analytics', icon: <TrendingUp className="w-4 h-4" /> },
   { path: '/admin/revenue', label: 'Revenue', icon: <DollarSign className="w-4 h-4" /> },
