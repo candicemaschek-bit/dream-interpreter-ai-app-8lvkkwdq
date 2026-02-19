@@ -158,14 +158,14 @@ export function LandingPage() {
         <div className="relative pt-20 pb-32 md:pt-32 md:pb-48 px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-8 font-sans bg-gradient-to-r from-violet-600 via-fuchsia-500 to-amber-500 bg-clip-text text-transparent drop-shadow-sm leading-tight pb-2">
-                  Capture your dreams & find your meaning
+                  Dreamworlds – Turn Your Dreams into Cinematic Realities
             </h1>
             <p className="text-xl md:text-2xl mb-6 leading-relaxed text-purple-600 font-bold font-sans">
-                Where do we go when we Dream?   
+                Powered by Dreamcatcher AI: Capture, Interpret, and Visualize Your Subconscious
             </p>
             <p className="text-base md:text-lg mb-8 leading-relaxed text-foreground font-sans">
-                  DreamWorlds transforms your dreams into an immersive, AI-generated film experience — a cinematic journey through your own subconscious. By analyzing every dream you record in DreamCatcher AI and other Dreamworlds Experiences, Dreamworlds brings it all together by connecting your symbols, emotions, and recurring themes to build a personalized Dream Universe. <br /><br />
-DreamWorlds isn't just entertainment. It's emotional reflection, creative exploration, and self-discovery in motion — a film made entirely by your mind.
+                  Start with Dreamcatcher AI to instantly decode your subconscious symbols, track emotional patterns, and find deeper meaning in your nightly journeys. As your library grows, Dreamworlds connects these insights to build your personalized "Dream Universe"—transforming your raw data into an immersive, AI-generated cinematic experience. <br /><br />
+            DreamWorlds is where quick interpretation meets deep visualization. It's self-discovery in motion—a film made entirely by your mind.
             </p>
 
             <div className="flex justify-center gap-4 flex-wrap">
@@ -258,18 +258,23 @@ DreamWorlds isn't just entertainment. It's emotional reflection, creative explor
                 <span className="text-2xl font-bold text-primary">5</span>
               </div>
               <h4 className="text-xl md:text-2xl font-bold mb-2 font-sans">Enter Dreamworlds</h4>
-              <p className="text-base md:text-lg font-sans"> A cinematic experience where your dreams form a living map of your subconscious.
-                Join the waitlist—releasing soon.
+              <p className="text-base md:text-lg font-sans"> The ultimate payoff: A cinematic experience where your dreams form a living, visual map of your subconscious.
+                Unlock your cinematic journey—releasing soon.
 </p>
             </div>
           </div>
 
           {/* Image Below Steps */}
-          <div className="mb-12 overflow-hidden rounded-lg shadow-lg max-w-2xl mx-auto">
+          <div className="mb-12 overflow-hidden rounded-lg shadow-2xl max-w-2xl mx-auto relative group">
+            <div className="absolute top-4 right-4 z-10">
+              <div className="bg-primary/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                <Film className="w-3 h-3" /> CINEMATIC TEASER
+              </div>
+            </div>
             <img 
               src={HOW_IT_WORKS_IMAGE}
-              alt="Step-by-step dream analysis process showing dream recording, symbol identification, and  assisted interpretation"
-              className="w-full block"
+              alt="Teaser visualization of a Dreamworld cinematic experience - transforming symbols into a living landscape"
+              className="w-full block transition-transform duration-700 group-hover:scale-110"
               style={{
                 aspectRatio: '2/1',
                 objectFit: 'cover',
@@ -298,9 +303,9 @@ DreamWorlds isn't just entertainment. It's emotional reflection, creative explor
 
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-sans text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-300">Dreamworlds Tools for Inner Exploration</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-sans text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-300">The Dreamworlds Ecosystem</h2>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto font-sans">
-              An evolving ecosystem of intelligent tools that transform subconscious signals into meaningful self-discovery.  Built from your own dream data. Private and personalized. No two journeys alike.
+              An evolving ecosystem of intelligent tools that transform subconscious signals into meaningful self-discovery. Start free with Dreamcatcher AI and unlock advanced cinematic tools as you grow.
             </p>
           </div>
 
@@ -374,7 +379,7 @@ DreamWorlds isn't just entertainment. It's emotional reflection, creative explor
             <Button size="lg" onClick={() => navigate('/early-access?tier=visionary')} className="gap-2 bg-white text-slate-900 hover:bg-slate-200 border-0 font-bold">
               Sign up for Early Access <ArrowRight className="w-4 h-4" />
             </Button>
-            <p className="text-slate-400 mt-4 font-sans">Start with Dreamcatcher AI and unlock more tools as you grow</p>
+            <p className="text-slate-400 mt-4 font-sans">Start free with Dreamcatcher AI and unlock premium cinematic tools as your universe grows.</p>
           </div>
         </div>
       </section>
@@ -386,7 +391,7 @@ DreamWorlds isn't just entertainment. It's emotional reflection, creative explor
             <Star className="w-6 h-6 text-accent" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 font-sans">DREAMWORLDS CINEMATICS</h2>
-          <p className="text-lg text-accent font-semibold mb-8 font-sans">Coming Soon</p>
+          <p className="text-lg text-accent font-semibold mb-8 font-sans">Join 5,478+ dreamers already building their Dream Universe – early access drops soon.</p>
           <h3 className="text-2xl md:text-3xl font-semibold mb-8 font-sans">More Than Interpretation, start decoding your dreams tonight.</h3>
 
           <p className="text-base md:text-lg mb-10 leading-relaxed font-sans">
@@ -452,7 +457,7 @@ DreamWorlds isn't just entertainment. It's emotional reflection, creative explor
       <section className="py-20 md:py-24 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-sans">Your Dreamworld is waiting</h2>
-          <p className="text-base md:text-lg mb-10 font-sans">Start capturing your dreams and follow them to see where they lead.</p>
+          <p className="text-base md:text-lg mb-10 font-sans">Start with Dreamcatcher AI today – free. Capture your dreams and see where they lead.</p>
 
           <div className="flex justify-center">
             <Button size="lg" onClick={() => navigate('/signup?tier=free')} className="gap-2">
