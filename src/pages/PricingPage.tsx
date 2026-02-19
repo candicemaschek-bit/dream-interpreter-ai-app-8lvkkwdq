@@ -36,7 +36,7 @@ export function PricingPage() {
         {/* Subtle global gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-amber-500/5 pointer-events-none fixed z-0"></div>
         <div className="relative z-10">
-        <PageHeader showBackButton={true} backRoute="/" logoSrc="/DW-logo.png" />
+        <PageHeader logoSrc="/DW-logo.png" />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">

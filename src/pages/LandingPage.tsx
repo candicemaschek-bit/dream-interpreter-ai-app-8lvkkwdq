@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Button } from '../components/ui/button'
-import { ThemeToggle } from '../components/ui/theme-toggle'
-import { ArrowRight, Star, Menu, X, Sparkles, Heart, Zap, Map, Film } from 'lucide-react'
+import { ArrowRight, Star, Film } from 'lucide-react'
 import { NewsletterDialog } from '../components/NewsletterDialog'
 import { SEOHead } from '../components/SEOHead'
 import { ShareAppButton } from '../components/ShareAppButton'
 import { blink } from '../blink/client'
+import { PageHeader } from '../components/layout/PageHeader'
+import { PageFooter } from '../components/layout/PageFooter'
 
 const HERO_IMAGE = 'https://storage.googleapis.com/blink-core-storage/projects/dream-interpreter-ai-app-8lvkkwdq/images/generated-image-1764589625044-0.webp'
 const HOW_IT_WORKS_IMAGE = 'https://storage.googleapis.com/blink-core-storage/projects/dream-interpreter-ai-app-8lvkkwdq/images/generated-image-1764589628914-0.webp'
@@ -24,6 +25,15 @@ export function LandingPage() {
     script.src = "https://elfsightcdn.com/platform.js"
     script.async = true
     document.body.appendChild(script)
+    
+    // Handle hash scrolling after script load or on mount
+    const hash = window.location.hash
+    if (hash === '#how-it-works') {
+      setTimeout(() => {
+        const element = document.getElementById('how-it-works')
+        element?.scrollIntoView({ behavior: 'smooth' })
+      }, 500)
+    }
     
     return () => {
       const existingScript = document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')
@@ -470,38 +480,7 @@ export function LandingPage() {
 
 
       {/* Footer */}
-      <footer className="py-16 px-6 bg-gradient-to-t from-primary/8 to-transparent border-t">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-8">
-            <img src="/DW-logo.png" alt="Dreamworlds Logo" className="w-12 h-12 object-contain drop-shadow-md mx-auto mb-3" />
-            <p className="text-lg font-bold font-sans tracking-tight">DREAMWORLDS</p>
-          </div>
-          <p className="text-muted-foreground mb-6 font-sans">
-            Decode your dreams. Understand your symbols. Explore your inner world.
-          </p>
-          
-          {/* Share App CTA in Footer */}
-          <div className="mb-8">
-            <div className="flex justify-center">
-              <ShareAppButton size="lg" />
-            </div>
-            <p className="text-sm text-muted-foreground mt-3 font-sans">
-              Help friends discover the magic of dream interpretation
-            </p>
-          </div>
-          
-          <div className="flex justify-center gap-6 text-sm mb-8">
-            <button onClick={() => navigate('/privacy')} className="hover:text-primary transition-colors font-sans">Privacy</button>
-            <span className="text-border">•</span>
-            <button onClick={() => navigate('/terms')} className="hover:text-primary transition-colors font-sans">Terms</button>
-            <span className="text-border">•</span>
-            <button onClick={() => navigate('/contact')} className="hover:text-primary transition-colors font-sans">Contact</button>
-          </div>
-          <p className="text-xs text-muted-foreground font-sans">
-            © 2025 Dreamworlds. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <PageFooter logoSrc="/DW-logo.png" />
 
       {/* Newsletter Dialog */}
       <NewsletterDialog open={newsletterOpen} onOpenChange={setNewsletterOpen} />
