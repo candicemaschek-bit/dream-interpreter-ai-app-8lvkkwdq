@@ -261,7 +261,7 @@ export function LandingPage() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/20 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 blur-2xl"></div>
               <div className="relative z-10">
                 <h3 className="text-xl font-bold mb-3 font-sans text-white flex items-center gap-3">
-                  <img src="/DW-logo.png" alt="Dreamcatcher AI Icon" className="w-8 h-8 object-contain" />
+                  <img src="/dreamworlds-logo.png" alt="Dreamcatcher AI Icon" className="w-8 h-8 object-contain" />
                   Dreamcatcher AI
                 </h3>
                 <p className="text-base font-sans text-slate-300 mb-4">AI dream interpretations, symbolic insights, and emotional mapping. Your starting point into the ecosystem.</p>
@@ -416,7 +416,7 @@ export function LandingPage() {
 
 
       {/* Footer */}
-      <PageFooter logoSrc="/DW-logo.png" />
+      <PageFooter logoSrc="/dreamworlds-logo.png" />
 
       {/* Newsletter Dialog */}
       <NewsletterDialog open={newsletterOpen} onOpenChange={setNewsletterOpen} />

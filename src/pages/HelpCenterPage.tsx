@@ -111,7 +111,7 @@ export function HelpCenterPage() {
         {/* Subtle global gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-amber-500/5 pointer-events-none fixed z-0"></div>
         <div className="relative z-10">
-        <PageHeader logoSrc="/DW-logo.png" />
+        <PageHeader logoSrc="/dreamworlds-logo.png" />
 
         {/* Header */}
         <div className="bg-gradient-to-r from-primary/10 to-accent/10 border-b">
@@ -229,7 +229,7 @@ export function HelpCenterPage() {
 
         </div>
 
-        <PageFooter logoSrc="/DW-logo.png" />
+        <PageFooter logoSrc="/dreamworlds-logo.png" />
         </div>
       </div>
     </>

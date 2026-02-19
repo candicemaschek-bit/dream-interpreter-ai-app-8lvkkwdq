@@ -48,7 +48,7 @@ export function ContactPage() {
         {/* Subtle global gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-amber-500/5 pointer-events-none fixed z-0"></div>
         <div className="relative z-10">
-        <PageHeader logoSrc="/DW-logo.png" />
+        <PageHeader logoSrc="/dreamworlds-logo.png" />
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-6 py-16">
@@ -196,7 +196,7 @@ export function ContactPage() {
           </p>
         </div>
       </div>
-      <PageFooter logoSrc="/DW-logo.png" />
+      <PageFooter logoSrc="/dreamworlds-logo.png" />
       </div>
     </div>
     </>

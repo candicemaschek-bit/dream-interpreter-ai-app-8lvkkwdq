@@ -320,7 +320,7 @@ export function SignUpPage() {
         {/* Logo and Title */}
         <div className="text-center space-y-2">
           <div className="relative inline-block">
-            <img src="/DW-logo.png" alt="Dreamworlds Logo" className="w-24 h-24 mx-auto object-contain relative z-10 drop-shadow-xl" />
+            <img src="/dreamworlds-logo.png" alt="Dreamworlds Logo" className="w-24 h-24 mx-auto object-contain relative z-10 drop-shadow-xl" />
             <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-150 animate-pulse"></div>
           </div>
           <h1 className="text-4xl font-sans font-bold dream-gradient-text drop-shadow-sm tracking-tight">DREAMWORLDS</h1>

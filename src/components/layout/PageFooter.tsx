@@ -6,7 +6,7 @@ interface PageFooterProps {
   title?: string
 }
 
-export function PageFooter({ logoSrc = '/DW-logo.png', logoAlt = 'Dreamworlds', title = 'DREAMWORLDS' }: PageFooterProps) {
+export function PageFooter({ logoSrc = '/dreamworlds-logo.png', logoAlt = 'Dreamworlds', title = 'DREAMWORLDS' }: PageFooterProps) {
   const navigate = useNavigate()
 
   return (

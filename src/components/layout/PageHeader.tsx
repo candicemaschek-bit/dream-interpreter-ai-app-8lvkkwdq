@@ -16,7 +16,7 @@ interface PageHeaderProps {
 export function PageHeader({ 
   showBackButton = false, 
   backRoute = '/', 
-  logoSrc = '/DW-logo.png', 
+  logoSrc = '/dreamworlds-logo.png', 
   title = 'DREAMWORLDS',
   showNavLinks = true
 }: PageHeaderProps) {
