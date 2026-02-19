@@ -8,6 +8,7 @@ import { ShareAppButton } from '../components/ShareAppButton'
 import { blink } from '../blink/client'
 import { PageHeader } from '../components/layout/PageHeader'
 import { PageFooter } from '../components/layout/PageFooter'
+import { ThemeToggle } from '../components/ui/theme-toggle'
 
 const HERO_IMAGE = 'https://storage.googleapis.com/blink-core-storage/projects/dream-interpreter-ai-app-8lvkkwdq/images/generated-image-1764589625044-0.webp'
 const HOW_IT_WORKS_IMAGE = 'https://storage.googleapis.com/blink-core-storage/projects/dream-interpreter-ai-app-8lvkkwdq/images/generated-image-1764589628914-0.webp'
