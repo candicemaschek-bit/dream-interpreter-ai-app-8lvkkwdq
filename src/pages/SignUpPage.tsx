@@ -319,9 +319,12 @@ export function SignUpPage() {
 
         {/* Logo and Title */}
         <div className="text-center space-y-2">
-          <img src="/logo_new.png" alt="Dreamcatcher AI Logo" className="w-24 h-24 mx-auto object-contain" />
-          <h1 className="text-4xl font-serif font-bold">Dreamcatcher AI</h1>
-          <p className="text-muted-foreground">
+          <div className="relative inline-block">
+            <img src="/DW-logo.png" alt="Dreamworlds Logo" className="w-24 h-24 mx-auto object-contain relative z-10 drop-shadow-xl" />
+            <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-150 animate-pulse"></div>
+          </div>
+          <h1 className="text-4xl font-sans font-bold dream-gradient-text drop-shadow-sm tracking-tight">DREAMWORLDS</h1>
+          <p className="text-muted-foreground font-medium">
             {mode === 'signup' ? 'Start your dream journey' : 'Welcome back'}
           </p>
         </div>

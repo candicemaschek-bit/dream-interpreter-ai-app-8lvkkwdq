@@ -13,12 +13,9 @@ export const DreamMapPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <SEOHead 
-        title="Collective Dreamscape - Dreamcatcher AI"
-        description="Explore the visual landscape of the subconscious mind. Our experimental Dreamscape visualizes universal dream archetypes."
-      />
+      <SEOHead page="map" />
       
-      <PageHeader logoSrc="/dreamcatcher-logo.png" title="Dreamcatcher AI" />
+      <PageHeader showBackButton={true} backRoute="/dashboard" />
 
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8">
         <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -137,7 +134,7 @@ export const DreamMapPage: React.FC = () => {
         </div>
       </main>
 
-      <PageFooter logoSrc="/dreamcatcher-logo.png" title="Dreamcatcher AI" />
+      <PageFooter />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { PageHeader } from '../components/layout/PageHeader'
 import { PageFooter } from '../components/layout/PageFooter'
 import { EarlyAccessDialog } from '../components/EarlyAccessDialog'
+import { SEOHead } from '../components/SEOHead'
 
 export function EarlyAccessPage() {
   const [searchParams] = useSearchParams()
@@ -36,6 +37,7 @@ export function EarlyAccessPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background flex flex-col">
+      <SEOHead page="earlyAccess" />
       <PageHeader showBackButton={true} backRoute={returnTo} />
 
       {/* Content */}

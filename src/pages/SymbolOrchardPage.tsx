@@ -9,6 +9,7 @@ import { blink } from '../blink/client'
 import { SymbolOrchard } from '../components/SymbolOrchard'
 import { PageHeader } from '../components/layout/PageHeader'
 import { PageFooter } from '../components/layout/PageFooter'
+import { SEOHead } from '../components/SEOHead'
 import { Loader2 } from 'lucide-react'
 import type { SubscriptionTier } from '../config/tierCapabilities'
 
@@ -56,14 +57,15 @@ export function SymbolOrchardPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background">
-        <PageHeader showBackButton={true} backRoute="/dashboard" logoSrc="/dreamcatcher-logo.png" title="Dreamcatcher AI" />
-        <main className="container mx-auto px-4 py-8">
+      <div className="min-h-screen bg-background flex flex-col">
+        <SEOHead page="orchard" />
+        <PageHeader showBackButton={true} backRoute="/dashboard" />
+        <main className="flex-1 container mx-auto px-4 py-8">
           <div className="flex items-center justify-center min-h-[60vh]">
             <Loader2 className="h-12 w-12 animate-spin text-purple-500" />
           </div>
         </main>
-        <PageFooter logoSrc="/dreamcatcher-logo.png" title="Dreamcatcher AI" />
+        <PageFooter />
       </div>
     )
   }
@@ -73,16 +75,17 @@ export function SymbolOrchardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-green-50/30 to-purple-50/20">
-      <PageHeader showBackButton={true} backRoute="/dashboard" logoSrc="/dreamcatcher-logo.png" title="Dreamcatcher AI" />
-      <main className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-background via-purple-50/30 to-background flex flex-col">
+      <SEOHead page="orchard" />
+      <PageHeader showBackButton={true} backRoute="/dashboard" />
+      <main className="flex-1 container mx-auto px-4 py-8">
         <SymbolOrchard
           userId={userId}
           tier={tier}
           onUpgradeClick={handleUpgradeClick}
         />
       </main>
-      <PageFooter logoSrc="/dreamcatcher-logo.png" title="Dreamcatcher AI" />
+      <PageFooter />
     </div>
   )
 }

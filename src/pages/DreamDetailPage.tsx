@@ -10,6 +10,9 @@ import { isCrawler, getServerOGUrl, addPrerenderHint } from '../utils/ogHelper'
 import { guardDream } from '../utils/typeGuards'
 import { parseInterpretation } from '../utils/interpretationParser'
 import type { Dream } from '../types/dream'
+import { PageHeader } from '../components/layout/PageHeader'
+import { PageFooter } from '../components/layout/PageFooter'
+import { SEOHead } from '../components/SEOHead'
 import toast from 'react-hot-toast'
 
 function DreamInterpretationDisplay({ interpretation }: { interpretation: string }) {
@@ -183,58 +186,60 @@ export function DreamDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-          <p className="text-muted-foreground">Loading dream...</p>
-        </div>
+      <div className="min-h-screen bg-background flex flex-col">
+        <PageHeader showBackButton={true} />
+        <main className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
+            <p className="text-muted-foreground">Loading dream...</p>
+          </div>
+        </main>
+        <PageFooter />
       </div>
     )
   }
 
   if (error || !dream) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center p-4">
-        <Card className="max-w-md w-full">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <img src="/logo_new.png" alt="Error" className="w-6 h-6 opacity-70 grayscale" />
-              Dream Not Found
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-muted-foreground">
-              {error || 'This dream could not be found.'}
-            </p>
-            <Button onClick={() => navigate('/')} className="w-full">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Button>
-          </CardContent>
-        </Card>
+      <div className="min-h-screen bg-background flex flex-col">
+        <PageHeader showBackButton={true} />
+        <main className="flex-1 flex items-center justify-center p-4">
+          <Card className="max-w-md w-full dream-card">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                Dream Not Found
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-muted-foreground">
+                {error || 'This dream could not be found.'}
+              </p>
+              <Button onClick={() => navigate('/')} className="w-full">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Home
+              </Button>
+            </CardContent>
+          </Card>
+        </main>
+        <PageFooter />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5">
-      {/* Header */}
-      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Button variant="ghost" size="sm" onClick={() => navigate('/')}>
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button>
-          <div className="flex items-center gap-3">
-            <img src="/logo_new.png" alt="Logo" className="w-6 h-6 opacity-70" />
-            <span className="font-serif font-semibold">Dreamcatcher AI</span>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-background flex flex-col">
+      <SEOHead 
+        customSEO={{
+          title: `${dream.title} | Dreamworlds Interpretation`,
+          description: dream.description.substring(0, 160),
+          ogImage: dream.imageUrl
+        }}
+      />
+      <PageHeader showBackButton={true} />
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <Card className="shadow-xl">
+      <main className="flex-1 max-w-4xl mx-auto w-full px-4 py-8">
+        <Card className="shadow-2xl border-primary/10 overflow-hidden dream-card">
           <CardHeader className="pb-0">
             <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-6">
               <div className="flex-1">
@@ -326,7 +331,8 @@ export function DreamDetailPage() {
             )}
           </CardContent>
         </Card>
-      </div>
+      </main>
+      <PageFooter />
     </div>
   )
 }

@@ -40,8 +40,8 @@ export const PRIMARY_KEYWORDS = [
  */
 export const PAGE_SEO: { [key: string]: PageSEO } = {
   home: {
-    title: 'Dreamcatcher AI - AI-Powered Dream Interpretation & Analysis',
-    description: 'Unlock the hidden meanings in your dreams with AI-powered interpretation. Decode dream symbols, track patterns, and explore your subconscious mind with personalized insights.',
+    title: 'Dreamworlds - AI-Powered Dream Interpretation & Cinematic Realities',
+    description: 'Unlock the hidden meanings in your dreams with AI-powered interpretation. Transform your subconscious symbols into living cinematic realities with Dreamworlds.',
     keywords: [
       'dream interpretation ai',
       'dream analyzer',
@@ -212,6 +212,34 @@ export const PAGE_SEO: { [key: string]: PageSEO } = {
       description: 'Contact our support team for help',
       url: `${SITE_CONFIG.siteUrl}/contact`
     }
+  },
+
+  community: {
+    title: 'Dreamstream - Shared Subconscious Journeys | Dreamworlds',
+    description: 'Explore the collective subconscious. Browse shared dreams, discover archetypal patterns, and connect with a community of dreamers.',
+    keywords: ['shared dreams', 'dream community', 'subconscious collective', 'dream patterns', 'dreamstream'],
+    ogType: 'website'
+  },
+
+  orchard: {
+    title: 'Symbol Orchard - Your Personal Symbol Library | Dreamworlds',
+    description: 'Nurture and explore the symbols gathered from your nightly journeys. SymbolicaAI helps you track recurring motifs and deep archetypes.',
+    keywords: ['dream symbols', 'symbol library', 'archetypes', 'symbol analysis', 'dream mapping'],
+    ogType: 'website'
+  },
+
+  earlyAccess: {
+    title: 'Join Early Access - Experience Dreamworlds Cinematics',
+    description: 'Be the first to turn your dreams into high-fidelity cinematic realities. Join the waitlist for exclusive access to advanced dream visualization tools.',
+    keywords: ['dream cinematics', 'AI video generation', 'subconscious visualization', 'early access', 'dream universe'],
+    ogType: 'website'
+  },
+
+  map: {
+    title: 'Dreamscape Cartography - Mapping the Subconscious | Dreamworlds',
+    description: 'Explore the visual landscape of human dreaming. Our experimental Dreamscape visualizes universal archetypes and emotional patterns across the collective mind.',
+    keywords: ['dream map', 'subconscious cartography', 'collective dreaming', 'archetype visualization', 'mental landscapes'],
+    ogType: 'website'
   }
 }
 

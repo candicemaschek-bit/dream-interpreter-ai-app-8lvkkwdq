@@ -25,6 +25,9 @@ import type { SubscriptionTier } from '../types/subscription'
 import { blink } from '../blink/client'
 import { getCommunityAccess } from '../types/community'
 import { isAdmin } from '../utils/roleChecking'
+import { PageHeader } from '../components/layout/PageHeader'
+import { PageFooter } from '../components/layout/PageFooter'
+import { SEOHead } from '../components/SEOHead'
 
 export function CommunityPage() {
   const navigate = useNavigate()
@@ -87,29 +90,27 @@ export function CommunityPage() {
   // Show territory feed if one is selected
   if (selectedTerritory) {
     return (
-      <div className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="min-h-screen bg-background flex flex-col">
+        <SEOHead page="community" />
+        <PageHeader showBackButton={true} backRoute="/community" />
+        <main className="flex-1 container mx-auto px-4 py-8 max-w-6xl">
           <CommunityDreamFeed
             territory={selectedTerritory}
             subscriptionTier={subscriptionTier}
             onBack={handleBack}
           />
-        </div>
+        </main>
+        <PageFooter />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className="min-h-screen bg-background flex flex-col">
+      <SEOHead page="community" />
+      <PageHeader showBackButton={true} backRoute="/dashboard" />
+      <main className="flex-1 container mx-auto px-4 py-8 max-w-6xl">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <Button variant="ghost" size="sm" onClick={() => navigate('/dashboard')}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Dashboard
-          </Button>
-        </div>
-
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
             <Users className="h-8 w-8 text-purple-600" />
@@ -182,7 +183,8 @@ export function CommunityPage() {
             )}
           </TabsContent>
         </Tabs>
-      </div>
+      </main>
+      <PageFooter />
     </div>
   )
 }
